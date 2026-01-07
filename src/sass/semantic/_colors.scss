@@ -3,18 +3,18 @@
 :root {
   // Primitive colors
   @each $key, $value in $color-core-neutral {
-    --clr-neutral-#{$key}: #{$value};
+    --clr-neutral-#{$key}: #{color.to-space($value, oklch)};
   }
 
   @each $brand, $key-map in $color-core-brand {
     @each $key, $value in $key-map {
-      --clr-brand-#{$brand}-#{$key}: #{$value};
+      --clr-brand-#{$brand}-#{$key}: #{color.to-space($value, oklch)};
     }
   }
 
   @each $key, $position-map in $color-core-gradient {
     @each $position, $value in $position-map {
-      --clr-gradient-#{$key}-#{$position}: #{$value};
+      --clr-gradient-#{$key}-#{$position}: #{color.to-space($value, oklch)};
     }
   }
 
