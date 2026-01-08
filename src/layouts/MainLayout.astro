@@ -7,10 +7,11 @@ import type { HTMLAttributes } from "astro/types";
 
 // Component imports
 import BaseHead from "../components/atomic/BaseHead.astro";
+import SkipNavLink from "@/components/utilities/SkipNavLink.astro";
 
 interface Props extends HTMLAttributes<"html"> {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   image?: string;
 }
 
@@ -19,6 +20,8 @@ const { title, description, image } = Astro.props;
 
 <html lang="en">
   <BaseHead {title} {description} {image} />
+  <SkipNavLink />
+
   <body>
     <main id="main">
       <slot />
