@@ -1,11 +1,16 @@
 @use "helper" as *;
+@use "page" as *;
+@use "sass:map";
 
+// Body
 $font-size-body-md-min: 16px;
 $font-size-body-md-max: 16px;
+// Title
 $font-size-title-md-min: 20px;
 $font-size-title-md-max: 20px;
 $font-size-title-lg-min: 34px;
 $font-size-title-lg-max: 34px;
+// Interface
 $font-size-interface-md-min: 16px;
 $font-size-interface-md-max: 16px;
 $font-size-interface-lg-min: 20px;

@@ -14,16 +14,23 @@ $color-core-neutral: (
   "900-o70": oklch(0.2152 0.0818 267.2 / 0.7),
 );
 
+$color-core-accent: (
+  "orange": (
+    "500": #fe9f6b,
+  ),
+  "teal": (
+    "500": #49ac9b,
+  ),
+  "indigo": (
+    "500": #697ddb,
+  ),
+);
+
 $color-core-brand: (
-  "red": (
+  "primary": (
     "400": oklch(0.6701 0.1862 26.35),
     "500": oklch(0.6119 0.1893 27.23),
     "700": oklch(0.5346 0.1993 29.02),
-  ),
-  "blue": (
-    "400": oklch(0.6701 0.1862 279.067),
-    "500": oklch(0.6119 0.1893 279.067),
-    "700": oklch(0.5346 0.1993 279.067),
   ),
 );
 
@@ -38,8 +45,11 @@ $color-core-gradient: (
   ),
 );
 
+// Has Themes
+$has-themes: true;
+
 // Default-brand
-$default-brand: "red";
+$default-brand: "primary";
 
 // Background-colors
 $background-colors: (
