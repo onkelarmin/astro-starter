@@ -56,6 +56,14 @@
   }
 }
 
+// Fonts
+@each $name, $property-map in $fonts {
+  .font-#{$name} {
+    font: var(--font-#{$name});
+    letter-spacing: var(--ls-#{map.get($property-map, "letter-spacing")});
+  }
+}
+
 // Font-sizes
 @each $category, $size-map in $font-sizes {
   @each $size, $value in $size-map {

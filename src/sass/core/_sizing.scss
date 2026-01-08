@@ -26,6 +26,9 @@ $static-sizes: (
   64: 64px,
 );
 
+// Breakpoint-specific sizes
+$breakpoint-specific-sizes: ((20, 24, 24), (24, 32, 32), (24, 32, 48));
+
 //  Logo
 $size-logo-md-width-min: 179px;
 $size-logo-md-width-max: 179px;
