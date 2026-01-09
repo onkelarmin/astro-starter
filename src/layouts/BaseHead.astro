@@ -1,21 +1,17 @@
 ---
-// Import base Data
-import { baseData } from "@/data/siteData";
-
 // Type imports
 import type { HTMLAttributes } from "astro/types";
 
+// Props
 interface Props extends HTMLAttributes<"head"> {
-  title?: string;
-  description?: string;
-  image?: string;
+  title: string;
+  description: string;
+  ogImage: string;
 }
 
-const {
-  title = baseData.title,
-  description = baseData.description,
-  image,
-} = Astro.props;
+const { title, description, ogImage } = Astro.props;
+
+const siteUrl = import.meta.env.SITE;
 ---
 
 <head>
@@ -52,7 +48,7 @@ const {
   <meta property="og:url" content={Astro.url} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={image} />
+  <meta property="og:image" content={`${siteUrl}${ogImage}`} />
   <meta property="og:image:alt" content={title} />
 
   <!-- Twitter -->
@@ -60,6 +56,6 @@ const {
   <meta property="twitter:url" content={Astro.url} />
   <meta property="twitter:title" content={title} />
   <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content={image} />
+  <meta property="twitter:image" content={`${siteUrl}${ogImage}`} />
   <meta property="twitter:image:alt" content={title} />
 </head>
