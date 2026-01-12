@@ -9,6 +9,13 @@
     }
   }
 
+  // Skip-nav-link
+  @if meta.variable-exists("skip-nav-link-appearance") {
+    @each $property, $value in $skip-nav-link-appearance {
+      --skip-nav-link-#{$property}: #{px-to-rem($value)};
+    }
+  }
+
   // Nav-toggle
   @if meta.variable-exists("nav-toggle-appearance") {
     @each $property, $value in $nav-toggle-appearance {

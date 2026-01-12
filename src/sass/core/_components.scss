@@ -113,6 +113,26 @@ $button-appearance: (
   ),
 );
 
+// Skip-nav-link
+$skip-nav-link-colors: (
+  bg: (
+    light: "neutral-000",
+  ),
+  fg: (
+    light: "neutral-900",
+  ),
+  border: (
+    light: "neutral-900",
+  ),
+);
+
+$skip-nav-link-appearance: (
+  padding-inline: 32px,
+  padding-block: 16px,
+  border-width: 2px,
+  border-radius: 16px,
+);
+
 // Nav-toggle
 $nav-toggle-colors: (
   idle: (
