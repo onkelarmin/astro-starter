@@ -76,40 +76,40 @@ $button-colors: (
 
 $button-appearance: (
   padding-inline: (
-    select: "size-16",
-    nav: "size-16",
-    hero: "size-32",
-    cta: "size-24",
-    card: "size-32",
+    select: 16px,
+    nav: 16px,
+    hero: 32px,
+    cta: 24px,
+    card: 32px,
   ),
   padding-block: (
-    select: "size-10",
-    nav: "size-12",
-    hero: "size-16",
-    cta: "size-16",
-    card: "size-12",
+    select: 10px,
+    nav: 12px,
+    hero: 16px,
+    cta: 16px,
+    card: 12px,
   ),
   border-width: (
-    default: "bw-none",
-    select: "bw-sm",
+    default: 0px,
+    select: 1px,
   ),
   outline-width: (
-    default: "size-2",
-    select: "size-2",
+    default: 2px,
+    select: 2px,
   ),
   offset-width: (
-    default: "size-3",
-    select: "size-2",
+    default: 3px,
+    select: 2px,
   ),
   border-radius: (
-    default: "br-md",
-    card: "br-pill",
+    default: 10px,
+    card: 1000px,
   ),
   icon-size: (
-    default: "size-20",
+    default: 20px,
   ),
   gap: (
-    default: "size-8",
+    default: 8px,
   ),
 );
 
@@ -122,5 +122,25 @@ $nav-toggle-colors: (
     fg: (
       light: "neutral-900",
     ),
+    border: (
+      light: "transparent",
+    ),
   ),
+  focus: (
+    outline: (
+      light: "neutral-900",
+    ),
+  ),
+);
+
+$nav-toggle-appearance: (
+  width: 40px,
+  height: 40px,
+  border-width: 0px,
+  border-radius: 4px,
+  line-width: 18px,
+  line-height: 2px,
+  line-gap: 5px,
+  outline-width: 2px,
+  offset-width: 2px,
 );

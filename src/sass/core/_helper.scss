@@ -107,11 +107,11 @@
   }
   // Nav-toggle
   @if meta.variable-exists("nav-toggle-colors") {
-    @each $state, $role-map in $nav-toggle-colors {
-      @each $role, $mode-map in $role-map {
+    @each $state, $property-map in $nav-toggle-colors {
+      @each $property, $mode-map in $property-map {
         @each $mode, $value in $mode-map {
           @if $mode == $theme {
-            --nav-toggle-#{$state}-#{$role}: var(--clr-#{$value});
+            --nav-toggle-#{$property}-color-#{$state}: var(--clr-#{$value});
           }
         }
       }
