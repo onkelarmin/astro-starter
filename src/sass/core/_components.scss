@@ -1,15 +1,4 @@
-$nav-toggle-colors: (
-  idle: (
-    bg: (
-      light: "neutral-300",
-    ),
-    fg: (
-      light: "neutral-900",
-    ),
-  ),
-);
-
-// Button-colors
+// Buttons
 $button-colors: (
   default: (
     idle: (
@@ -81,6 +70,57 @@ $button-colors: (
       border: (
         light: "neutral-900",
       ),
+    ),
+  ),
+);
+
+$button-appearance: (
+  padding-inline: (
+    select: "size-16",
+    nav: "size-16",
+    hero: "size-32",
+    cta: "size-24",
+    card: "size-32",
+  ),
+  padding-block: (
+    select: "size-10",
+    nav: "size-12",
+    hero: "size-16",
+    cta: "size-16",
+    card: "size-12",
+  ),
+  border-width: (
+    default: "bw-none",
+    select: "bw-sm",
+  ),
+  outline-width: (
+    default: "size-2",
+    select: "size-2",
+  ),
+  offset-width: (
+    default: "size-3",
+    select: "size-2",
+  ),
+  border-radius: (
+    default: "br-md",
+    card: "br-pill",
+  ),
+  icon-size: (
+    default: "size-20",
+  ),
+  gap: (
+    default: "size-8",
+  ),
+);
+
+// Nav-toggle
+$nav-toggle-colors: (
+  idle: (
+    bg: (
+      light: "neutral-300",
+    ),
+    fg: (
+      light: "neutral-900",
     ),
   ),
 );

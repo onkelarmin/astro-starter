@@ -1,0 +1,9 @@
+@use "../core" as *;
+
+:root {
+  @each $property, $variant-map in $button-appearance {
+    @each $variant, $value in $variant-map {
+      --btn-#{$property}-#{$variant}: var(--#{$value});
+    }
+  }
+}

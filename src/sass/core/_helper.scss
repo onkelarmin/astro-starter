@@ -93,11 +93,13 @@
   }
   // Buttons
   @each $variant, $state-map in $button-colors {
-    @each $state, $role-map in $state-map {
-      @each $role, $mode-map in $role-map {
+    @each $state, $property-map in $state-map {
+      @each $property, $mode-map in $property-map {
         @each $mode, $value in $mode-map {
           @if $mode == $theme {
-            --btn-#{$variant}-#{$state}-#{$role}: var(--clr-#{$value});
+            --btn-#{$property}-color-#{$state}-#{$variant}: var(
+              --clr-#{$value}
+            );
           }
         }
       }
