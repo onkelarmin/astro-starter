@@ -30,11 +30,11 @@ $static-sizes: (
 $breakpoint-specific-sizes: ((20, 24, 24), (24, 32, 32), (24, 32, 48));
 
 //  Logo
-$size-logo-md-width-min: 179px;
-$size-logo-md-width-max: 179px;
+$size-logo-width-min: 208px;
+$size-logo-width-max: 260px;
 
 $logo-sizes: (
-  md: fluid($size-logo-md-width-min, $size-logo-md-width-max),
+  md: fluid($size-logo-width-min, $size-logo-width-max),
 );
 
 // Icons

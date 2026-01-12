@@ -1,5 +1,10 @@
-@use "sass:math";
 @use "page" as *;
+@use "borders" as *;
+@use "box-shadows" as *;
+@use "colors" as *;
+@use "components" as *;
+@use "sass:math";
+@use "sass:meta";
 
 // Rounding
 @function round($number, $decimals: 0) {
@@ -46,4 +51,70 @@
       #{$max-size-rem}
     );
   }
+}
+
+// Themes mixin
+@mixin theme-vars($theme) {
+  //  Background-colors
+  @each $context, $semantic-map in $background-colors {
+    @each $semantic, $mode-map in $semantic-map {
+      @each $mode, $value in $mode-map {
+        @if $mode == $theme {
+          --bg-#{$context}-#{$semantic}: var(--clr-#{$value});
+        }
+      }
+    }
+  }
+  // Foreground-colors
+  @each $context, $semantic-map in $foreground-colors {
+    @each $semantic, $mode-map in $semantic-map {
+      @each $mode, $value in $mode-map {
+        @if $mode == $theme {
+          --fg-#{$context}-#{$semantic}: var(--clr-#{$value});
+        }
+      }
+    }
+  }
+  // Border-colors
+  @each $semantic, $mode-map in $border-colors {
+    @each $mode, $value in $mode-map {
+      @if $mode == $theme {
+        --bc-#{$semantic}: var(--clr-#{$value});
+      }
+    }
+  }
+  // Box-shadows
+  @each $semantic, $mode-map in $box-shadow-colors {
+    @each $mode, $value in $mode-map {
+      @if $mode == $theme {
+        --clr-bs-#{$semantic}: #{$value};
+      }
+    }
+  }
+  // Buttons
+  @each $variant, $state-map in $button-colors {
+    @each $state, $role-map in $state-map {
+      @each $role, $mode-map in $role-map {
+        @each $mode, $value in $mode-map {
+          @if $mode == $theme {
+            --btn-#{$variant}-#{$state}-#{$role}: var(--clr-#{$value});
+          }
+        }
+      }
+    }
+  }
+  // Nav-toggle
+  @if meta.variable-exists("nav-toggle-colors") {
+    @each $state, $role-map in $nav-toggle-colors {
+      @each $role, $mode-map in $role-map {
+        @each $mode, $value in $mode-map {
+          @if $mode == $theme {
+            --nav-toggle-#{$state}-#{$role}: var(--clr-#{$value});
+          }
+        }
+      }
+    }
+  }
+  // Color-scheme
+  color-scheme: #{$theme};
 }
