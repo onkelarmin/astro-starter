@@ -3,10 +3,10 @@
 ---
 
 <button
-  id="btnToggle"
+  id="primary-nav-toggle"
   aria-label="Open and Close Navigation"
   aria-expanded="false"
-  aria-controls="primary-nav__menu"
+  aria-controls="primary-nav-menu"
 >
   <span class="line line-1"></span>
   <span class="line line-2"></span>
@@ -38,7 +38,8 @@
       border-radius: var(--br-pill);
       transition:
         transform var(--motion-default-sensitive) var(--ease-in-out),
-        opacity var(--motion-fast) var(--ease-out) var(--motion-fast);
+        opacity var(--motion-fast-sensitive) var(--ease-out)
+          var(--delay-fast-sensitive);
     }
 
     &:focus {
@@ -61,7 +62,7 @@
 
       .line-2 {
         opacity: 0;
-        transition: opacity var(--motion-fast) var(--ease-in);
+        transition: opacity var(--motion-fast-sensitive) var(--ease-in);
       }
 
       .line-3 {
@@ -74,7 +75,7 @@
       }
     }
 
-    @include mq(medium) {
+    @include mq(large) {
       display: none;
     }
   }

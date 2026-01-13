@@ -3,6 +3,8 @@
 
 :root {
   // Primitive colors
+  --clr-transparent: transparent;
+
   @each $key, $value in $color-core-neutral {
     --clr-neutral-#{$key}: #{color.to-space($value, oklch)};
   }

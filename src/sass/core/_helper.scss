@@ -5,6 +5,8 @@
 @use "components" as *;
 @use "sass:math";
 @use "sass:meta";
+@use "sass:color";
+@use "sass:list";
 
 // Rounding
 @function round($number, $decimals: 0) {
@@ -87,7 +89,18 @@
   @each $semantic, $mode-map in $box-shadow-colors {
     @each $mode, $value in $mode-map {
       @if $mode == $theme {
-        --clr-bs-#{$semantic}: #{$value};
+        @if meta.type-of($value) == list {
+          // account for opacity
+          --clr-bs-#{$semantic}: oklch(
+            from var(--clr-#{list.nth($value, 1)})
+              l
+              c
+              h /
+              #{list.nth($value, 2)}
+          );
+        } @else {
+          --clr-bs-#{$semantic}: var(--clr-#{$value});
+        }
       }
     }
   }
