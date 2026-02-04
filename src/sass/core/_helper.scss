@@ -21,13 +21,13 @@
 }
 
 //   px to rem
-@function px-to-rem($px) {
+@function rem($px) {
   $rems: math.div($px, 16px) * 1rem;
   @return $rems;
 }
 
 //   px to em
-@function px-to-em($px) {
+@function em($px) {
   $ems: math.div($px, 16px) * 1em;
   @return $ems;
 }
@@ -35,7 +35,7 @@
 // clamp
 @function fluid($min-size, $max-size, $start: "min", $end: "max", $unit: vw) {
   @if $min-size == $max-size {
-    @return px-to-rem($min-size);
+    @return rem($min-size);
   } @else {
     // Initialize
     $min-breakpoint: null;
@@ -56,9 +56,9 @@
     // Calculations
     $slope: math.div($max-size - $min-size, $max-breakpoint - $min-breakpoint);
     $slope-to-unit: round($slope * 100, 2);
-    $intercept-rem: round(px-to-rem($min-size - $slope * $min-breakpoint), 2);
-    $min-size-rem: round(px-to-rem($min-size), 2);
-    $max-size-rem: round(px-to-rem($max-size), 2);
+    $intercept-rem: round(rem($min-size - $slope * $min-breakpoint), 2);
+    $min-size-rem: round(rem($min-size), 2);
+    $max-size-rem: round(rem($max-size), 2);
     @return clamp(
       #{$min-size-rem},
       #{$slope-to-unit}#{$unit} + #{$intercept-rem},

@@ -4,7 +4,7 @@
 :root {
   // Border-widths
   @each $size, $value in $border-widths {
-    --bw-#{$size}: #{px-to-rem($value)};
+    --bw-#{$size}: #{rem($value)};
   }
 
   // Borders

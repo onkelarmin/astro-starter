@@ -5,12 +5,12 @@
 :root {
   // Breakpoints
   @each $size, $value in $breakpoints {
-    --bp-#{$size}: #{px-to-em($value)};
+    --bp-#{$size}: #{em($value)};
   }
 
   // Wrapper max-widths
   @each $size, $value in $wrapper-sizes {
-    --size-wrapper-#{$size}: #{px-to-rem($value)};
+    --size-wrapper-#{$size}: #{rem($value)};
   }
 
   // Logo
@@ -18,9 +18,9 @@
     --size-logo-#{$size}: #{$value};
   }
 
-  // Icon
-  @each $size, $value in $icon-sizes {
-    --size-icon-#{$size}: #{$value};
+  // SVG
+  @each $size, $value in $svg-sizes {
+    --size-svg-#{$size}: #{$value};
   }
 
   // Selectable sizing
@@ -61,18 +61,18 @@
   }
   @each $size-list in $breakpoint-specific-sizes {
     $name: get-breakpoint-specific-name($size-list);
-    --size-#{$name}: #{px-to-rem(list.nth($size-list, 1) * 1px)};
+    --size-#{$name}: #{rem(list.nth($size-list, 1) * 1px)};
   }
   @each $size-list in $breakpoint-specific-sizes {
     $name: get-breakpoint-specific-name($size-list);
-    @media (min-width: #{px-to-em(map.get($breakpoints, "medium"))}) {
-      --size-#{$name}: #{px-to-rem(list.nth($size-list, 2) * 1px)};
+    @media (min-width: #{em(map.get($breakpoints, "medium"))}) {
+      --size-#{$name}: #{rem(list.nth($size-list, 2) * 1px)};
     }
   }
   @each $size-list in $breakpoint-specific-sizes {
     $name: get-breakpoint-specific-name($size-list);
-    @media (min-width: #{px-to-em(map.get($breakpoints, "large"))}) {
-      --size-#{$name}: #{px-to-rem(list.nth($size-list, 3) * 1px)};
+    @media (min-width: #{em(map.get($breakpoints, "large"))}) {
+      --size-#{$name}: #{rem(list.nth($size-list, 3) * 1px)};
     }
   }
 }
