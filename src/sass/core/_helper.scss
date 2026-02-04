@@ -74,7 +74,18 @@
     @each $semantic, $mode-map in $semantic-map {
       @each $mode, $value in $mode-map {
         @if $mode == $theme {
-          --bg-#{$context}-#{$semantic}: var(--clr-#{$value});
+          @if meta.type-of($value) == list {
+            // account for opacity
+            --bg-#{$context}-#{$semantic}: oklch(
+              from var(--clr-#{list.nth($value, 1)})
+                l
+                c
+                h /
+                #{list.nth($value, 2)}
+            );
+          } @else {
+            --bg-#{$context}-#{$semantic}: var(--clr-#{$value});
+          }
         }
       }
     }
@@ -84,7 +95,18 @@
     @each $semantic, $mode-map in $semantic-map {
       @each $mode, $value in $mode-map {
         @if $mode == $theme {
-          --fg-#{$context}-#{$semantic}: var(--clr-#{$value});
+          @if meta.type-of($value) == list {
+            // account for opacity
+            --fg-#{$context}-#{$semantic}: oklch(
+              from var(--clr-#{list.nth($value, 1)})
+                l
+                c
+                h /
+                #{list.nth($value, 2)}
+            );
+          } @else {
+            --fg-#{$context}-#{$semantic}: var(--clr-#{$value});
+          }
         }
       }
     }
@@ -93,7 +115,18 @@
   @each $semantic, $mode-map in $border-colors {
     @each $mode, $value in $mode-map {
       @if $mode == $theme {
-        --bc-#{$semantic}: var(--clr-#{$value});
+        @if meta.type-of($value) == list {
+          // account for opacity
+          --bc-#{$semantic}: oklch(
+            from var(--clr-#{list.nth($value, 1)})
+              l
+              c
+              h /
+              #{list.nth($value, 2)}
+          );
+        } @else {
+          --bc-#{$semantic}: var(--clr-#{$value});
+        }
       }
     }
   }
@@ -122,9 +155,20 @@
       @each $property, $mode-map in $property-map {
         @each $mode, $value in $mode-map {
           @if $mode == $theme {
-            --btn-#{$property}-color-#{$state}-#{$variant}: var(
-              --clr-#{$value}
-            );
+            @if meta.type-of($value) == list {
+              // account for opacity
+              --btn-#{$property}-color-#{$state}-#{$variant}: oklch(
+                from var(--clr-#{list.nth($value, 1)})
+                  l
+                  c
+                  h /
+                  #{list.nth($value, 2)}
+              );
+            } @else {
+              --btn-#{$property}-color-#{$state}-#{$variant}: var(
+                --clr-#{$value}
+              );
+            }
           }
         }
       }
