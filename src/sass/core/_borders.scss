@@ -1,16 +1,10 @@
 $border-widths: (
-  md: 1px,
-  lg: 2px,
+  md: rem(1px),
 );
 
 $border-colors: (
   header: (
     light: "neutral-200",
-    dark: "neutral-transparent",
-  ),
-  card: (
-    light: "neutral-200",
-    dark: "neutral-600",
   ),
 );
 
@@ -19,10 +13,5 @@ $borders: (
     width: "md",
     style: "solid",
     color: "header",
-  ),
-  card: (
-    width: "md",
-    style: "solid",
-    color: "card",
   ),
 );

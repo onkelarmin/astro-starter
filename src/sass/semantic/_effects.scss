@@ -4,7 +4,7 @@
 :root {
   // Border-widths
   @each $size, $value in $border-widths {
-    --bw-#{$size}: #{rem($value)};
+    --bw-#{$size}: #{$value};
   }
 
   // Borders
