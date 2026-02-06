@@ -3,6 +3,32 @@
 @use "sass:map";
 
 :root {
+  // static sizes
+  @each $size, $value in $static-sizes {
+    --size-#{$size}: #{rem($value)};
+  }
+
+  // Breakpoint-specific sizes
+  @function get-breakpoint-specific-name($list) {
+    @return #{list.nth($list, 1)}-#{list.nth($list, 2)}-#{list.nth($list, 3)};
+  }
+  @each $size-list in $breakpoint-specific-sizes {
+    $name: get-breakpoint-specific-name($size-list);
+    --size-#{$name}: #{rem(list.nth($size-list, 1))};
+  }
+  @each $size-list in $breakpoint-specific-sizes {
+    $name: get-breakpoint-specific-name($size-list);
+    @media (min-width: #{em(map.get($breakpoints, "medium"))}) {
+      --size-#{$name}: #{rem(list.nth($size-list, 2))};
+    }
+  }
+  @each $size-list in $breakpoint-specific-sizes {
+    $name: get-breakpoint-specific-name($size-list);
+    @media (min-width: #{em(map.get($breakpoints, "large"))}) {
+      --size-#{$name}: #{rem(list.nth($size-list, 3))};
+    }
+  }
+
   // Breakpoints
   @each $size, $value in $breakpoints {
     --bp-#{$size}: #{em($value)};
@@ -41,26 +67,5 @@
   // Container spacing
   @each $size, $value in $spacer-container {
     --space-cont-#{$size}: #{$value};
-  }
-
-  // Breakpoint-specific sizes
-  @function get-breakpoint-specific-name($list) {
-    @return #{list.nth($list, 1)}-#{list.nth($list, 2)}-#{list.nth($list, 3)};
-  }
-  @each $size-list in $breakpoint-specific-sizes {
-    $name: get-breakpoint-specific-name($size-list);
-    --size-#{$name}: #{rem(list.nth($size-list, 1) * 1px)};
-  }
-  @each $size-list in $breakpoint-specific-sizes {
-    $name: get-breakpoint-specific-name($size-list);
-    @media (min-width: #{em(map.get($breakpoints, "medium"))}) {
-      --size-#{$name}: #{rem(list.nth($size-list, 2) * 1px)};
-    }
-  }
-  @each $size-list in $breakpoint-specific-sizes {
-    $name: get-breakpoint-specific-name($size-list);
-    @media (min-width: #{em(map.get($breakpoints, "large"))}) {
-      --size-#{$name}: #{rem(list.nth($size-list, 3) * 1px)};
-    }
   }
 }
