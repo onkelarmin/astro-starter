@@ -116,7 +116,18 @@
     @each $property, $mode-map in $skip-nav-link-colors {
       @each $mode, $value in $mode-map {
         @if $mode == $theme {
-          --skip-nav-link-#{$property}-color: var(--clr-#{$value});
+          @if meta.type-of($value) == list {
+            // account for opacity
+            --skip-nav-link-#{$property}-color: oklch(
+              from var(--clr-#{list.nth($value, 1)})
+                l
+                c
+                h /
+                #{list.nth($value, 2)}
+            );
+          } @else {
+            --skip-nav-link-#{$property}-color: var(--clr-#{$value});
+          }
         }
       }
     }
@@ -127,7 +138,18 @@
       @each $property, $mode-map in $property-map {
         @each $mode, $value in $mode-map {
           @if $mode == $theme {
-            --nav-toggle-#{$property}-color-#{$state}: var(--clr-#{$value});
+            @if meta.type-of($value) == list {
+              // account for opacity
+              --nav-toggle-#{$property}-color-#{$state}: oklch(
+                from var(--clr-#{list.nth($value, 1)})
+                  l
+                  c
+                  h /
+                  #{list.nth($value, 2)}
+              );
+            } @else {
+              --nav-toggle-#{$property}-color-#{$state}: var(--clr-#{$value});
+            }
           }
         }
       }
