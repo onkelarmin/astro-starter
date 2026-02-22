@@ -1,6 +1,6 @@
 ---
-// Integreations
-import { Icon } from "astro-icon/components";
+// Asset imports
+// import Icon from "@assets/"
 
 // Types
 import type { HTMLAttributes } from "astro/types";
@@ -18,7 +18,7 @@ const { href, variant, text, icon, classes, ...rest } = Astro.props;
 
 <a href={href} class:list={["btn", variant, classes]} {...rest}>
   {text && <span class="text">{text}</span>}
-  {icon && <Icon name={icon} />}
+  <!-- {icon && <Icon class="icon" />} -->
 </a>
 
 <style lang="scss">
@@ -46,7 +46,7 @@ const { href, variant, text, icon, classes, ...rest } = Astro.props;
       outline: 0px solid transparent;
     }
 
-    [data-icon] {
+    .icon {
       width: var(--btn-icon-size-default);
       aspect-ratio: 1;
       color: inherit;
