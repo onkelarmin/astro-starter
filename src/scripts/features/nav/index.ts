@@ -1,1 +1,5 @@
-export { initMobileNav } from "./mobileNav";
+import { initMobileNav } from "./mobileNav";
+
+export function initNav() {
+  initMobileNav();
+}

@@ -1,5 +1,5 @@
 // Imports
-import { customProp, cssTime } from "@/lib/helper";
+import { customProp, cssTime } from "@shared/utils/helper";
 
 export function initMobileNav() {
   // Variables

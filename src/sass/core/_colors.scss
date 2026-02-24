@@ -21,13 +21,13 @@ $color-core-brand: (
 
 $color-core-gradient: (
   1: (
-    start: oklch(0.9588 0.0154 257.2),
-    end: oklch(0.9779 0.0139 185.96),
+    start: hsl(192, 100%, 67%),
+    end: hsl(280, 87%, 65%),
   ),
 );
 
 // Has Themes
-$has-themes: false;
+$has-themes: true;
 
 // Default-brand
 $default-brand: "primary";
@@ -37,27 +37,33 @@ $background-colors: (
   canvas: (
     default: (
       light: "neutral-000",
+      dark: "neutral-900",
     ),
   ),
   container: (
     default: (
       light: "neutral-000",
+      dark: "neutral-900",
     ),
   ),
   mobile-nav: (
     menu: (
       light: "neutral-000",
+      dark: "neutral-900",
     ),
     overlay: (
       light: "transparent",
+      dark: "transparent",
     ),
   ),
   text: (
     selection: (
-      light: "brand-700",
+      light: "neutral-900",
+      dark: "neutral-000",
     ),
     target: (
-      light: "brand-700",
+      light: "neutral-900",
+      dark: "neutral-000",
     ),
   ),
 );
@@ -67,15 +73,19 @@ $foreground-colors: (
   text: (
     base: (
       light: "neutral-600",
+      dark: "neutral-500",
     ),
     strong: (
-      light: "neutral-900",
+      light: "neutral-600",
+      dark: "neutral-500",
     ),
     selection: (
-      light: "neutral-100",
+      light: "neutral-000",
+      dark: "neutral-900",
     ),
     target: (
-      light: "neutral-100",
+      light: "neutral-000",
+      dark: "neutral-900",
     ),
   ),
 );

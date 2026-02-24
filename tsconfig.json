@@ -10,10 +10,10 @@
       "@components/*": ["src/components/*"],
       "@data/*": ["src/data/*"],
       "@layouts/*": ["src/layouts/*"],
-      "@lib/*": ["src/lib/*"],
       "@pages/*": ["src/pages/*"],
       "@sass/*": ["src/sass/*"],
-      "@scripts/*": ["src/scripts/*"],
+      "@features/*": ["src/scripts/features/*"],
+      "@shared/*": ["src/scripts/shared/*"],
     }
   }
 }
