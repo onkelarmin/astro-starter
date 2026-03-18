@@ -1,24 +1,23 @@
 ---
-// Asset imports
-// import Icon from "@assets/"
-
 // Types
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes, SvgComponent } from "astro/types";
 
 interface Props extends HTMLAttributes<"a"> {
   href: string;
   variant: "nav" | "hero" | "cta" | "card";
   text?: string;
-  icon?: string;
+  icon?: SvgComponent;
   classes?: string;
 }
 
 const { href, variant, text, icon, classes, ...rest } = Astro.props;
+
+const Icon = icon;
 ---
 
 <a href={href} class:list={["btn", variant, classes]} {...rest}>
   {text && <span class="text">{text}</span>}
-  <!-- {icon && <Icon class="icon" />} -->
+  {Icon && <Icon class="icon" aria-hidden="true" />}
 </a>
 
 <style lang="scss">
@@ -102,6 +101,10 @@ const { href, variant, text, icon, classes, ...rest } = Astro.props;
       font: var(--font-8);
       letter-spacing: var(--ls-xl);
       border-radius: var(--btn-border-radius-card);
+    }
+
+    .icon {
+      height: 1em;
     }
   }
 </style>

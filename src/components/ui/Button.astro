@@ -1,24 +1,23 @@
 ---
-// Asset imports
-// import Icon from "@assets/"
-
 // Types
-import type { HTMLAttributes } from "astro/types";
+import type { HTMLAttributes, SvgComponent } from "astro/types";
 
 interface Props extends HTMLAttributes<"button"> {
   type?: "button" | "submit";
   variant: "select";
   text?: string;
-  icon?: string;
+  icon?: SvgComponent;
   classes?: string;
 }
 
 const { type = "button", variant, text, icon, classes, ...rest } = Astro.props;
+
+const Icon = icon;
 ---
 
 <button class:list={["btn", variant, classes]} {type} {...rest}>
   {text && <span class="text">{text}</span>}
-  <!-- {icon && <Icon class="icon" />} -->
+  {Icon && <Icon class="icon" aria-hidden="true" />}
 </button>
 
 <style lang="scss">
@@ -80,6 +79,10 @@ const { type = "button", variant, text, icon, classes, ...rest } = Astro.props;
           0 0 0 calc(var(--btn-outline-width-select) * 2)
             var(--btn-outline-color-focus-select);
       }
+    }
+
+    .icon {
+      height: 1em;
     }
   }
 </style>

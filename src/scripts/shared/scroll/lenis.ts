@@ -11,6 +11,8 @@ export function initLenis() {
   // Initialize a new Lenis instance for smooth scrolling
   lenis = new Lenis({
     anchors: true,
+    syncTouch: true,
+    syncTouchLerp: 0.05,
   });
 
   // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
@@ -32,4 +34,12 @@ export function getLenis(): Lenis {
   if (!lenis) throw new Error("Lenis has not been initialized");
 
   return lenis;
+}
+
+export function stopLenis() {
+  getLenis().stop();
+}
+
+export function startLenis() {
+  getLenis().start();
 }

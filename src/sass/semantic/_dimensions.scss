@@ -49,6 +49,11 @@
     --size-svg-#{$size}: #{$value};
   }
 
+  // Miscellaneous
+  @each $size, $value in $miscellaneous-sizes {
+    --size-misc-#{$size}: #{$value};
+  }
+
   // Page padding
   @each $direction, $value in $padding-page {
     --pad-page-#{$direction}: #{$value};

@@ -9,12 +9,23 @@ export function initMobileNav() {
   const primaryNav = document.querySelector<HTMLElement>(".primary-nav");
   const primaryNavMenu =
     primaryNav?.querySelector<HTMLElement>("#primary-nav-menu");
+  const primaryNavLinks = Array.from(
+    document.querySelectorAll<HTMLAnchorElement>(".nav-link"),
+  );
+
   const mobileNavOverlay = document.querySelector<HTMLDivElement>(
     "#mobile-nav-overlay",
   );
   const main = document.querySelector<HTMLElement>("main");
 
-  if (!btnToggle || !primaryNav || !primaryNavMenu || !main) return;
+  if (
+    !btnToggle ||
+    !primaryNav ||
+    !primaryNavMenu ||
+    primaryNavLinks.length === 0 ||
+    !main
+  )
+    return;
 
   const media = window.matchMedia(`(width < ${customProp("--bp-large")})`);
 
@@ -27,6 +38,9 @@ export function initMobileNav() {
       // is mobile
       primaryNavMenu.setAttribute("inert", "");
       primaryNavMenu.style.transition = "none";
+      primaryNavLinks.forEach((link) => {
+        link.addEventListener("click", closeMobileMenu);
+      });
     } else {
       // is tablet/desktop
       primaryNavMenu?.removeAttribute("inert");

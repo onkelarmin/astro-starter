@@ -17,8 +17,40 @@ $animation-easings: (
 );
 
 $transitions: (
-  default: (
+  default-out: (
     motion: "default",
     ease: "out",
+  ),
+  default-in: (
+    motion: "default",
+    ease: "in",
+  ),
+  default-in-out: (
+    motion: "default",
+    ease: "in-out",
+  ),
+  fast-out: (
+    motion: "fast",
+    ease: "out",
+  ),
+  fast-in: (
+    motion: "fast",
+    ease: "in",
+  ),
+  fast-in-out: (
+    motion: "fast",
+    ease: "in-out",
+  ),
+  slow-out: (
+    motion: "slow",
+    ease: "out",
+  ),
+  slow-in: (
+    motion: "slow",
+    ease: "in",
+  ),
+  slow-in-out: (
+    motion: "slow",
+    ease: "in-out",
   ),
 );

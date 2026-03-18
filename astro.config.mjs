@@ -8,6 +8,10 @@ export default defineConfig({
     responsiveStyles: true,
     layout: "constrained",
   },
+  prefetch: {
+    prefetchAll: true,
+  },
+
   // devToolbar: {
   //   enabled: false,
   // },

@@ -18,6 +18,6 @@ export function initScrollTriggerRefresh() {
 export function initGsapDefaults() {
   gsap.defaults({
     duration: cssTime("--motion-slow"),
-    ease: "back",
+    ease: "power2.out",
   });
 }
