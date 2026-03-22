@@ -20,9 +20,9 @@ interface Props extends HTMLAttributes<"html"> {
 
 <html lang="en">
   <BaseHead {...Astro.props} />
-  <SkipNavLink />
-  <Header />
   <body>
+    <SkipNavLink />
+    <Header />
     <main id="main">
       <slot />
     </main>

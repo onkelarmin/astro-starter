@@ -1,11 +1,16 @@
 @use "helper" as *;
 
 $border-widths: (
+  none: rem(0px),
   md: rem(1px),
   lg: rem(2px),
 );
 
 $border-colors: (
+  none: (
+    light: "transparent",
+    dark: "transparent",
+  ),
   default-focus: (
     light: "brand-500",
     dark: "brand-500",
@@ -13,6 +18,11 @@ $border-colors: (
 );
 
 $borders: (
+  none: (
+    width: "none",
+    style: "solid",
+    color: "none",
+  ),
   default-focus: (
     width: "lg",
     style: "solid",

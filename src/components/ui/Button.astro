@@ -32,9 +32,11 @@ const Icon = icon;
     border-style: solid;
     border-radius: var(--btn-border-radius-default);
     transition:
-      color var(--trans-default),
-      background-color var(--trans-default),
-      border-color var(--trans-default);
+      color var(--trans-fast-out),
+      background-color var(--trans-fast-out),
+      border-color var(--trans-fast-out),
+      outline-color var(--trans-fast-in),
+      outline-offset var(--trans-fast-out-sensitive);
 
     &:not(:disabled) {
       cursor: pointer;

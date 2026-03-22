@@ -33,32 +33,42 @@
     --ease-#{$ease}: #{$value};
   }
 
-  @each $name, $params-map in $transitions {
-    --trans-#{$name}: var(--motion-#{map.get($params-map, "motion")})
-      var(--ease-#{map.get($params-map, "ease")});
-    --trans-#{$name}-sensitive: var(
-        --motion-#{map.get($params-map, "motion")}-sensitive
-      )
-      var(--ease-#{map.get($params-map, "ease")});
+  // Transitions
+  @each $speed, $speed-value in $animation-durations {
+    @each $ease, $ease-value in $animation-easings {
+      --trans-#{$speed}-#{$ease}: var(--motion-#{$speed}) var(--ease-#{$ease});
+      --trans-#{$speed}-#{$ease}-sensitive: var(--motion-#{$speed}-sensitive)
+        var(--ease-#{$ease});
+    }
   }
 }
 
 // View transition theme switch
 @media (prefers-reduced-motion: no-preference) {
   ::view-transition-old(root) {
-    animation-delay: var(--motion-slow);
+    animation: fade-out var(--motion-slow) var(--ease-in);
   }
 
   ::view-transition-new(root) {
-    animation: circle-in var(--motion-slow);
+    animation: fade-in var(--motion-slow) var(--ease-out);
   }
 
-  @keyframes circle-in {
+  @keyframes fade-in {
     from {
-      clip-path: circle(0% at 50% 0%);
+      opacity: 0;
+      filter: blur(16px);
     }
     to {
-      clip-path: circle(130% at 50% 0%);
+      opacity: 1;
+    }
+  }
+  @keyframes fade-out {
+    from {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+      filter: blur(16px);
     }
   }
 }
