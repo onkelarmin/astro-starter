@@ -37,9 +37,9 @@
       background-color: var(--nav-toggle-fg-color-idle);
       border-radius: var(--br-pill);
       transition:
-        transform var(--motion-default-sensitive) var(--ease-in-out),
-        opacity var(--motion-fast-sensitive) var(--ease-out)
-          var(--delay-fast-sensitive);
+        transform var(--trans-fast-in-out-sensitive),
+        opacity var(--trans-x-fast-in-out-sensitive)
+          var(--delay-x-fast-sensitive);
     }
 
     &:focus {
@@ -62,7 +62,7 @@
 
       .line-2 {
         opacity: 0;
-        transition: opacity var(--motion-fast-sensitive) var(--ease-in);
+        transition: opacity var(--trans-x-fast-in);
       }
 
       .line-3 {
